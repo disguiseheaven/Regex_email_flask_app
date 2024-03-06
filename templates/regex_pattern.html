@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Regex Pattern Matcher</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Regex Pattern Matcher</h1>
+        <form action="/regex_match" method="post">
+            <input type="text" id="pattern" name="pattern" placeholder="Enter regex pattern"><br>
+            <input type="text" id="string" name="string" placeholder="Enter the string"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        {% if matches %}
+        <div class="match-result">
+            <h2>Match Result</h2>
+            <p>Matches:</p>
+            <ul>
+                {% for match in matches %}
+                <li>{{ match }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p> No match Found </p>
+        {% endif %}
+    </div>
+    </div>
+</body>
+</html>
